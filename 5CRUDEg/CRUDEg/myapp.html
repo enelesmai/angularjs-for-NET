@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html ng-app="MyApp">
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+</head>
+<body>
+    <div ng-controller="employeesController">
+        
+        <table class="table table-striped">
+            <tr>
+                <td>Eid</td>
+                <td>EName</td>
+            </tr>
+            <tr dir-paginate="emp in Emps | itemsPerPage:5">
+                <td><a href="#" ng-click="GetByEid(emp.Eid)" >{{emp.Eid}}</a></td>
+                <td>{{emp.EName}}</td>
+            </tr>
+        </table>
+
+        <dir-pagination-controls max-size="5"
+                                 direction-links="true"
+                                 boundary-links="true">
+        </dir-pagination-controls>
+
+        {{Emp}}
+    </div>
+</body>
+</html>
+<script src="Scripts/angular.js"></script>
+<script src="myapp.js"></script>
+<script src="Scripts/bootstrap.js"></script>
+<script src="Scripts/dirPagination.js"></script>

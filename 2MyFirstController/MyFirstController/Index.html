@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html ng-app="MyApp">
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <div ng-controller="MyController">
+        {{2+3}}
+        {{MyVal}}
+        <input type="text" ng-model="MyVal" />
+
+        <div ng-show="MyVal">Welcome</div>
+
+        <input type="button" ng-click="myFun()" value="Click Me" />
+
+        <input type="button" ng-click="myFun2(MyVal)" value="Click Me Again" />
+
+    </div>
+</body>
+</html>
+<script src="Scripts/angular.min.js"></script>
+<script src="Scripts/myapp.js"></script>

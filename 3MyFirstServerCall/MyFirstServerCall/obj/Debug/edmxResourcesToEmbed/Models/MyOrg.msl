@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MyOrgModelStoreContainer" CdmEntityContainer="MyOrgEntities">
+    <EntitySetMapping Name="Departments">
+      <EntityTypeMapping TypeName="MyOrgModel.Department">
+        <MappingFragment StoreEntitySet="Department">
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="HOD" ColumnName="HOD" />
+          <ScalarProperty Name="DName" ColumnName="DName" />
+          <ScalarProperty Name="Did" ColumnName="Did" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="MyOrgModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="Did" ColumnName="Did" />
+          <ScalarProperty Name="EDOB" ColumnName="EDOB" />
+          <ScalarProperty Name="EGender" ColumnName="EGender" />
+          <ScalarProperty Name="ESalary" ColumnName="ESalary" />
+          <ScalarProperty Name="EName" ColumnName="EName" />
+          <ScalarProperty Name="Eid" ColumnName="Eid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

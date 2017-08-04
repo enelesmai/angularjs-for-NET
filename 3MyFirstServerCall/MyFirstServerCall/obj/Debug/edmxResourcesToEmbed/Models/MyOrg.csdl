@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MyOrgModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="MyOrgEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Departments" EntityType="MyOrgModel.Department" />
+    <EntitySet Name="Employees" EntityType="MyOrgModel.Employee" />
+    <AssociationSet Name="FK_Employee_Employee" Association="MyOrgModel.FK_Employee_Employee">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="Employee" EntitySet="Employees" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="Did" />
+    </Key>
+    <Property Name="Did" Type="Int32" Nullable="false" />
+    <Property Name="DName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="HOD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Gender" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Employees" Relationship="MyOrgModel.FK_Employee_Employee" FromRole="Department" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Eid" />
+    </Key>
+    <Property Name="Eid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ESalary" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="EGender" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="EDOB" Type="DateTime" Precision="0" />
+    <Property Name="Did" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Department" Relationship="MyOrgModel.FK_Employee_Employee" FromRole="Employee" ToRole="Department" />
+  </EntityType>
+  <Association Name="FK_Employee_Employee">
+    <End Type="MyOrgModel.Department" Role="Department" Multiplicity="0..1" />
+    <End Type="MyOrgModel.Employee" Role="Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="Did" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="Did" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

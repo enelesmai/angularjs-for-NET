@@ -1,0 +1,79 @@
+﻿<!DOCTYP html>
+<html ng-app="myApp">
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div ng-controller="departmentController">
+        <input type="button" value="GetData" ng-click="GetDepartments()" />
+
+        <!--<ul ng-repeat="dept in MyValue">
+            <li>Did:{{dept.Did}} DName:{{dept.DName}}</li>
+        </ul>-->
+
+        <div ng-controller="employeeController">
+            <select ng-model="d" ng-change="GetEmployeesByDid(d)" 
+                    ng-options="dept.Did as dept.DName for dept in Depts">
+            </select>
+
+            <select 
+                    ng-model="e"
+                    ng-options="emp.Eid as emp.EName for emp in Emps">
+            </select>
+
+            <input type="text" ng-model="search" value=""/>
+
+            <table class="table table-striped">
+                <tr>
+                    <td ng-click="Sort('Eid')">Eid</td>
+                    <td ng-click="Sort('EName')">EName</td>
+                    <td ng-click="Sort('ESalary')">ESalary</td>
+                    <td ng-click="Sort('EGender')">Gender</td>
+                    <td ng-click="Sort('Department')">Department</td>
+                </tr>
+                <!--<tr ng-repeat="emp in Emps | filter:search | orderBy:key:AscOrDesc">-->
+                <tr dir-paginate="emp in Emps | filter:search | orderBy:key:AscOrDesc | itemsPerPage:3">
+                    <td>{{emp.Eid}}</td>
+                    <td>{{emp.EName | uppercase}}</td>
+                    <td>
+                        <input type="text" name="name" value="" ng-model="emp.ESalary" />
+                    </td>
+                    <td>
+                        <input type="radio" ng-model="emp.EGender" value="M" />Male
+                        <input type="radio" ng-model="emp.EGender" value="F" />Female
+                    </td>
+                    <td>
+                        <select ng-model="emp.Did"
+                                ng-options="dept.Did as dept.DName for dept in Depts"></select>
+                    </td>
+                </tr>
+            </table>
+            <dir-pagination-controls max-size="3"
+                                     direction-links="true"
+                                     boundary-links="true">
+            </dir-pagination-controls>
+        </div>
+
+        <!--<table class="table table-striped">
+            <tr>
+                <td>Did</td>
+                <td>Name</td>
+                <td>HOD</td>
+            </tr>
+            <tr ng-repeat="dept in MyValue">
+                <td>{{dept.Did}}</td>
+                <td>{{dept.DName}}</td>
+                <td>{{dept.HOD}}</td>
+            </tr>
+        </table>-->
+    </div>
+
+</body>
+</html>
+<script src="Scripts/angular.min.js"></script>
+<script src="Scripts/myapp.js"></script>
+<script src="Scripts/jquery-1.9.1.min.js"></script>
+<script src="Scripts/bootstrap.min.js"></script>
+<script src="Scripts/dirPagination.js"></script>
