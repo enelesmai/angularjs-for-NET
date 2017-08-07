@@ -11,11 +11,15 @@
         <table class="table table-striped">
             <tr>
                 <td>Eid</td>
-                <td>EName</td>
+                <td>EmpName</td>
+                <td>Delete</td>
             </tr>
             <tr dir-paginate="emp in Emps | itemsPerPage:5">
                 <td><a href="#" ng-click="GetByEid(emp.Eid)" >{{emp.Eid}}</a></td>
                 <td>{{emp.EName}}</td>
+                <td>
+                    <a href="#">Delete</a>
+                </td>
             </tr>
         </table>
 
@@ -24,11 +28,43 @@
                                  boundary-links="true">
         </dir-pagination-controls>
 
-        {{Emp}}
+        <table class="table table-bordered" width="50%">
+            <tr>
+                <td>Eid:</td>
+                <td><input type="text" value="" ng-model="Emp.Eid" /></td>
+            </tr>
+            <tr>
+                <td>EName:</td>
+                <td><input type="text" value="" ng-model="Emp.EName"  /></td>
+            </tr>
+            <tr>
+                <td>ESalary:</td>
+                <td><input type="text" value="" ng-model="Emp.ESalary" /></td>
+            </tr>
+            <tr>
+                <td>EGender:</td>
+                <td>
+                    <input type="radio" value="M" ng-model="Emp.EGender" /> Male
+                    <input type="radio" value="F" ng-model="Emp.EGender" /> Female
+                </td>
+            </tr>
+            <tr>
+                <td>EDOB:</td>
+                <td>
+                    <input type="text" value="" 
+                           ng-model="Emp.EDOB.replace('/Date(','').replace(')/','') | date:'MM/dd/yyyy'" />                    
+                </td>
+            </tr>
+            <tr>
+                <td><input type="button" value="Create" /></td>
+                <td><input type="button" value="Update" /></td>
+            </tr>
+        </table>
     </div>
 </body>
 </html>
 <script src="Scripts/angular.js"></script>
 <script src="myapp.js"></script>
+<script src="Scripts/jquery-1.10.2.min.js"></script>
 <script src="Scripts/bootstrap.js"></script>
 <script src="Scripts/dirPagination.js"></script>

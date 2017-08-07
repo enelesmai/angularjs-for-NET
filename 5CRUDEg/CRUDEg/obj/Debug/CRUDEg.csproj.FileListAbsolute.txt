@@ -79,3 +79,4 @@ D:\_Trainings\NET\AngularJS\CRUDEg\CRUDEg\bin\Microsoft.Owin.Security.Twitter.xm
 D:\_Trainings\NET\AngularJS\CRUDEg\CRUDEg\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 D:\_Trainings\NET\AngularJS\CRUDEg\CRUDEg\obj\Debug\CRUDEg.dll
 D:\_Trainings\NET\AngularJS\CRUDEg\CRUDEg\obj\Debug\CRUDEg.pdb
+D:\_Trainings\NET\AngularJS\CRUDEg\CRUDEg\obj\Debug\CRUDEg.csprojResolveAssemblyReference.cache
